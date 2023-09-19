@@ -2,7 +2,7 @@ package BasiSyntax.ConditionaStatementsAndLoops.Exercise;
 
 import java.util.Scanner;
 
-public class sort_05_1 {
+public class sort_01_1 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
