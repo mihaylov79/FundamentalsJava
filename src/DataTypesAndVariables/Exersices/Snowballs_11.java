@@ -17,7 +17,7 @@ public class Snowballs_11 {
              short snowballTime = Short.parseShort(kbInput.nextLine());
              byte snowballQuality = Byte.parseByte(kbInput.nextLine());
 
-            double snowballValue = Math.pow((snowballSnow / snowballTime) , snowballQuality);
+            double snowballValue = Math.pow(((double) snowballSnow / snowballTime) , snowballQuality);
 
             if (snowballValue > bestValue){
                 bestValue = snowballValue;
