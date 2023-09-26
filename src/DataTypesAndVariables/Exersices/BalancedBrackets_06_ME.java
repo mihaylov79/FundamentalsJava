@@ -32,9 +32,7 @@ public class BalancedBrackets_06_ME {
                     balanced = false;
                 }
             }
-            //if (!(left1 - right1 > 1)){
-               // balanced = true;
-            //}
+
         }
 
         if (right1 == left1 && balanced){
@@ -42,10 +40,6 @@ public class BalancedBrackets_06_ME {
         }else {
             System.out.println("UNBALANCED");
         }
-        //if (balanced){
-            //System.out.println("BALANCED");
-        //}else {
-            //System.out.println("UNBALANCED");
-        //}
+
     }
 }
