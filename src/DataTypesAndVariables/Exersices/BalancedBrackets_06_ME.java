@@ -9,25 +9,37 @@ public class BalancedBrackets_06_ME {
         int lines = Integer.parseInt(kbInput.nextLine());
         int left1 = 0;
         int right1 = 0;
+        int bracketCount = 0;
         boolean balanced = true;
 
         for (int i = 0; i < lines; i++) {
-            char contains = kbInput.nextLine().charAt(0);
+            String contains = kbInput.nextLine();
 
-            if (contains == '('){
+            if (contains.contains("(")){
                 left1++;
+                bracketCount++;
+
+                if (bracketCount % 2 == 0){
+                    balanced = false;
+                }
             }
-            if (contains == ')'){
+
+            if (contains.contains(")")){
                 right1++;
+                bracketCount++;
+
+                if (bracketCount % 2 != 0){
+                    balanced = false;
+                }
             }
-            if (left1 > right1 && left1 - right1 > 1 ||right1 > left1 && right1 - left1 > 1){
-                balanced = false;
-            }
+            //if (!(left1 - right1 > 1)){
+               // balanced = true;
+            //}
         }
+
         if (right1 == left1 && balanced){
             System.out.println("BALANCED");
-        }
-        if (right1 != left1 ){
+        }else {
             System.out.println("UNBALANCED");
         }
         //if (balanced){
