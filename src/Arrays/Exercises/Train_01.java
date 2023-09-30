@@ -1,6 +1,5 @@
 package Arrays.Exercises;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Train_01 {
@@ -13,15 +12,21 @@ public class Train_01 {
         int peopleSum = 0;
 
         for (int i = 0; i < wagons; i++) {
-
             people[i] = Integer.parseInt(kbInput.nextLine());
             peopleSum += people[i];
         }
-        System.out.print(Arrays.toString(people)
-                .replace("[","")
-                .replace("]",""));
+
+        for (int peoples:people) {
+            System.out.print(peoples + " ");
+        }
         System.out.println();
         System.out.println(peopleSum);
+
+//        System.out.print(Arrays.toString(people)
+//                .replace("[","")
+//                .replace("]",""));
+//        System.out.println();
+//        System.out.println(peopleSum);
 
     }
 }
