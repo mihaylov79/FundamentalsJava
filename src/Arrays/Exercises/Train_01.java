@@ -1,5 +1,6 @@
 package Arrays.Exercises;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Train_01 {
