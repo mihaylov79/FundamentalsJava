@@ -48,7 +48,10 @@ public class ArrayModifier_09 {
 
         }
 
-        String[] arr = Arrays.stream(arrayInput).mapToObj(String::valueOf).toArray(String[]::new);
+        String[] arr = Arrays.stream(arrayInput)
+                        .mapToObj(String::valueOf)
+                        .toArray(String[]::new);
+
         System.out.print(Arrays.toString(arr).replaceAll("[\\[\\]]",""));
 
 
