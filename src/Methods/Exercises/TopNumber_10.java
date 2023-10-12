@@ -19,7 +19,7 @@ public class TopNumber_10 {
             List<Integer> number = numberDecomposition(i);
 
             for (int j = 0; j < number.size(); j++) {
-                if ((number.get(j) / 2) != 0){
+                if ((number.get(j) % 2) != 0){
                     isValid = true;
                 }
                 sum += number.get(j);
