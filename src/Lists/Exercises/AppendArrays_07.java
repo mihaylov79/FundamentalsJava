@@ -13,19 +13,24 @@ public class AppendArrays_07 {
                 .split("")).collect(Collectors.toList());
 
         for (int i = 0; i < input.size(); i++) {
-//            if (input.get(i).contains(" ")) {
-//                input.remove(i);
-//                i--;
-//            }
-//            if (input.get(i).contains("-")) {
-//                input.set(i + 1, "-" + input.get(i + 1));
-//                input.remove(i);
-//            }
+
             if (input.get(i).matches("^\\d+") && input.get(i+1).matches("^\\d+") ){
                 input.set(i, input.get(i) + input.get(i+1));
                 input.remove(i+1);
             }
+
+            if (input.get(i).contains(" ")) {
+                input.remove(i);
+                i--;
+            }
+            if (input.get(i).contains("-")) {
+                input.set(i + 1, "-" + input.get(i + 1));
+                input.remove(i);
+            }
+
         }
+        System.out.println(input);
+
 
         List<Integer> output = new ArrayList<>();
         List<Integer> currentArray = new ArrayList<>();
