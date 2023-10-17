@@ -14,7 +14,7 @@ public class AppendArrays_07 {
 
         for (int i = 0; i < input.size(); i++) {
 
-            if (input.get(i).matches("^\\d+") && input.get(i+1).matches("^\\d+") ){
+            if ((i+1) <= (input.size()-1) && input.get(i).matches("^\\d+") && input.get(i+1).matches("^\\d+")){
                 input.set(i, input.get(i) + input.get(i+1));
                 input.remove(i+1);
             }
@@ -27,10 +27,7 @@ public class AppendArrays_07 {
                 input.set(i + 1, "-" + input.get(i + 1));
                 input.remove(i);
             }
-
         }
-        System.out.println(input);
-
 
         List<Integer> output = new ArrayList<>();
         List<Integer> currentArray = new ArrayList<>();
