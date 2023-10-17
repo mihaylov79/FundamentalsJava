@@ -12,22 +12,14 @@ public class AppendArrays_07 {
         List<String> input = Arrays.stream(kbInput.nextLine()
                 .split("")).collect(Collectors.toList());
 
-        for (int i = 0; i < input.size(); i++) {
 
-            if ((i+1) <= (input.size()-1) && input.get(i).matches("^\\d+") && input.get(i+1).matches("^\\d+")){
-                input.set(i, input.get(i) + input.get(i+1));
-                input.remove(i+1);
-            }
+        findDualNums(input);
 
-            if (input.get(i).contains(" ")) {
-                input.remove(i);
-                i--;
-            }
-            if (input.get(i).contains("-")) {
-                input.set(i + 1, "-" + input.get(i + 1));
-                input.remove(i);
-            }
-        }
+        removeSpaces(input);
+
+        findNegativeNums(input);
+
+
 
         List<Integer> output = new ArrayList<>();
         List<Integer> currentArray = new ArrayList<>();
@@ -72,5 +64,35 @@ public class AppendArrays_07 {
 
         }
 
+    }
+
+    public static void findDualNums(List<String>input){
+
+        for (int i = 0; i < input.size(); i++) {
+
+            if ((i + 1) <= (input.size() - 1) && input.get(i).matches("^\\d+") && input.get(i + 1).matches("^\\d+")) {
+                input.set(i, input.get(i) + input.get(i + 1));
+                input.remove(i + 1);
+            }
+        }
+    }
+
+    public static void removeSpaces(List<String>input){
+        for (int i = 0; i < input.size(); i++) {
+
+            if (input.get(i).contains(" ")) {
+                input.remove(i);
+                i--;
+            }
+        }
+    }
+    public static void findNegativeNums(List<String>input){
+        for (int i = 0; i < input.size(); i++) {
+
+            if (input.get(i).contains("-")) {
+                input.set(i + 1, "-" + input.get(i + 1));
+                input.remove(i);
+            }
+        }
     }
 }
