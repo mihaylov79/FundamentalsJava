@@ -1,4 +1,4 @@
-package ExamPreparation_01;
+package ExamPreparation_01.Test01;
 
 import java.util.Scanner;
 
