@@ -1,5 +1,4 @@
 package Fundamentals_midExam_22_10_23;
-import java.util.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -39,7 +38,7 @@ public class exercise_3 {
                 }
 
             }else {
-                if (priceRating.get(entryIndex) < priceRating.get(i)){
+                if (priceRating.get(entryIndex) <= priceRating.get(i)){
                     leftSum += priceRating.get(i);
                 }
             }

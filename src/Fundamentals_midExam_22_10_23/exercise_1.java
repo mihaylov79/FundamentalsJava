@@ -4,29 +4,26 @@ import java.util.Scanner;
 
 public class exercise_1 {
     public static void main(String[] args) {
+
         Scanner kbInput = new Scanner(System.in);
 
 
-        int citiesVisited = kbInput.nextInt();
-//        String cityName = kbInput.nextLine();
-//        double income = Double.parseDouble(kbInput.nextLine());
-//        double expenses = Double.parseDouble(kbInput.nextLine());
+        int citiesVisited = Integer.parseInt(kbInput.nextLine());
+
         double profit;
         double tripProfit = 0;
         int cityCount = 0;
 
-        for (int i = 1; i <= citiesVisited; i++) {
+        while (!(citiesVisited == 0)) {
 
             String cityName = kbInput.nextLine();
             double income = Double.parseDouble(kbInput.nextLine());
             double expenses = Double.parseDouble(kbInput.nextLine());
 
-            //cityName = kbInput.nextLine();
-            //income = Double.parseDouble(kbInput.nextLine());
-            //expenses = Double.parseDouble(kbInput.nextLine());
             cityCount++;
+            citiesVisited--;
 
-            if (i % 5 == 0 && i % 3 == 0){
+            if (cityCount % 5 == 0 && cityCount % 3 == 0){
 
                 income -= (income * 0.1);
                 profit = income - expenses;
@@ -57,17 +54,13 @@ public class exercise_1 {
                 printCityProfit(cityName,profit);
 
             }
-//            cityName = kbInput.nextLine();
-//            income = Double.parseDouble(kbInput.nextLine());
-//            expenses = Double.parseDouble(kbInput.nextLine());
-
 
         }
-        System.out.printf("Burger Bus total profit: %.2f",tripProfit);
+        System.out.printf("Burger Bus total profit: %.2f%n",tripProfit);
     }
 
     public static void printCityProfit (String cityName, double profit){
 
-        System.out.printf("In %s Burger Bus earned %.2f",cityName,profit);
+        System.out.printf("In %s Burger Bus earned %.2f%n",cityName,profit);
     }
 }
