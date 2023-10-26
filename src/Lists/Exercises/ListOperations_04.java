@@ -56,17 +56,25 @@ public class ListOperations_04 {
                     String direction = commandArray[1];
                     int count = Integer.parseInt(commandArray[2]);
                     if(direction.equalsIgnoreCase("left")){
+
                         for (int i = 0; i < count; i++) {
-                            input.add(input.get(0));
+                            int firstElement = input.get(0);
                             input.remove(0);
+                            input.add(firstElement);
+
+
                         }
+
 
                     }else{
+
                         for (int i = 0; i < count; i++) {
-                            input.add(i,input.get(input.size() - 1));
+                            int lastElement = input.get(input.size()-1);
                             input.remove(input.size() - 1);
+                            input.add(0,lastElement);
 
                         }
+
                     }
                     break;
             }
