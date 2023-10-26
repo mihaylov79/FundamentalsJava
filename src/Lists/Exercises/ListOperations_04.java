@@ -16,10 +16,11 @@ public class ListOperations_04 {
         String command = kbInput.nextLine();
 
 
-        while ("end".equalsIgnoreCase(command)){
+        while (!"end".equalsIgnoreCase(command)){
 
             String[] commandArray = command.split(" ");
             String commandType = commandArray[0];
+            int index;
 
 
             switch (commandType){
@@ -32,7 +33,7 @@ public class ListOperations_04 {
 
                 case "Insert":
                     int InsertValue = Integer.parseInt(commandArray[1]);
-                    int index = Integer.parseInt(commandArray[2]);
+                    index = Integer.parseInt(commandArray[2]);
 
                     if (isValid(input,index)){
                         input.add(index, InsertValue);
@@ -55,14 +56,29 @@ public class ListOperations_04 {
                     String direction = commandArray[1];
                     int count = Integer.parseInt(commandArray[2]);
                     if(direction.equalsIgnoreCase("left")){
+                        for (int i = 0; i < count; i++) {
+                            input.add(input.get(0));
+                            input.remove(0);
+                        }
 
+                    }else{
+                        for (int i = 0; i < count; i++) {
+                            input.add(i,input.get(input.size() - 1));
+                            input.remove(input.size() - 1);
+
+                        }
                     }
-
-
+                    break;
             }
 
-
+            command = kbInput.nextLine();
         }
+
+        List<String>output = input.stream()
+                            .map(String::valueOf)
+                            .collect(Collectors.toList());
+        System.out.print(String.join(" ", output ));
+
     }
     public static boolean isValid(List<Integer>input, int index){
         return index >= 0 && index <= input.size()-1;
