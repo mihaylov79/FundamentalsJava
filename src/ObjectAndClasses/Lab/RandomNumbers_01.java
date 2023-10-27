@@ -14,7 +14,10 @@ public class RandomNumbers_01 {
         for (int i1 = 0; i1 < input.length; i1++) {
 
             int randomWord = randomNum.nextInt(input.length);
-           input[i1] = input[randomWord];
+            String pos1 = input[i1];
+            String pos2 = input[randomWord];
+            input[i1] = pos2;
+            input[randomWord]=pos1;
 
         }
 
