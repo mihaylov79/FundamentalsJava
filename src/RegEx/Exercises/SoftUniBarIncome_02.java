@@ -9,7 +9,7 @@ public class SoftUniBarIncome_02 {
         Scanner kbInput = new Scanner(System.in);
 
         String input = kbInput.nextLine();
-        String regEx = "%(?<name>[A-Z][a-z]+)%<(?<product>[A-Z][a-z]+)>\\|(?<qnty>\\d+)\\|(?<price>\\d+\\.?\\d+?)\\$";
+        String regEx = "%(?<name>[A-Z][a-z]+)%[^|%$.]*?<(?<product>\\w+)>[^|%$.]*?\\|(?<qnty>\\d+)\\|[^|%$.]*?(?<price>\\d+(\\.\\d+)?)\\$";
         Pattern pattern = Pattern.compile(regEx);
         double total = 0;
 
@@ -20,16 +20,17 @@ public class SoftUniBarIncome_02 {
 
             if (matcher.find()){
 
-                double customerTotal = Integer.parseInt(matcher.group(3)) * Double.parseDouble(matcher.group(4));
+                double customerTotal = Integer.parseInt(matcher.group("qnty")) * Double.parseDouble(matcher.group("price"));
                 total += customerTotal;
 
-                System.out.println(matcher.group(1) + ": "+ matcher.group(2) + " - "+ customerTotal );
+                System.out.printf("%s: %s - %.2f%n",matcher.group("name"),matcher.group("product"),customerTotal );
             }
 
             input = kbInput.nextLine();
 
 
         }
+        System.out.printf("Total income: %.2f%n",total);
 
 
     }
