@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StarEnigma_02 {
+public class StarEnigma_03 {
     public static void main(String[] args) {
         Scanner kbInput =  new Scanner(System.in);
 
