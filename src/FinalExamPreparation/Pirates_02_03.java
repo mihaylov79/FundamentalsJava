@@ -16,7 +16,6 @@ public class Pirates_02_03 {
 
             String[] citiesArr = cities.split("\\|\\|");
 
-
             String cityName = citiesArr[0];
             int population = Integer.parseInt(citiesArr[1]);
             int gold = Integer.parseInt(citiesArr[2]);
@@ -33,7 +32,6 @@ public class Pirates_02_03 {
 
                     towns.put(cityName,stats);
             }
-
 
             cities = kbInput.nextLine();
         }
@@ -68,7 +66,6 @@ public class Pirates_02_03 {
                         towns.remove(townName);
                     }
 
-
                     break;
 
                 case "Prosper":
@@ -83,7 +80,6 @@ public class Pirates_02_03 {
 
                         System.out.printf("%d gold added to the city treasury. %s now has %d gold.%n",goldAdded,townName,town.getGold());
                     }
-
 
                     break;
             }
@@ -108,12 +104,7 @@ public class Pirates_02_03 {
 
             }
 
-
         }
-
-
-
-
 
 
     }
