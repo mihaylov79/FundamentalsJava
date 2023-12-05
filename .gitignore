@@ -2,5 +2,5 @@
 /shelf/
 /workspace.xml
 FundamntalsJava.iml
-FundamentalsJava/.idea
-FundamentalsJava/out/production/FundamentalsJava
+.idea/
+out/
