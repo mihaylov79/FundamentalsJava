@@ -22,11 +22,11 @@ public class EncryptSortAndPrint_01 {
                 char[] input = stringInput.toCharArray();
 
                 if (input[j] == 'a' || input[j] == 'o' || input[j] == 'u' || input[j] == 'e' || input[j] == 'i'
-                        || input[j] == 'A' || input[j] == 'O' || input[j] == 'U' || input[j] == 'E' || input[j] == 'I' ){
+                        || input[j] == 'A' || input[j] == 'O' || input[j] == 'U' || input[j] == 'E' || input[j] == 'I') {
 
-                    sum +=  input[j] * stringInput.length();
+                    sum += input[j] * stringInput.length();
 
-                }else {
+                } else {
                     sum += input[j] / stringInput.length();
                 }
 
@@ -36,7 +36,7 @@ public class EncryptSortAndPrint_01 {
 
         }
         Arrays.sort(output);
-        for (int index: output) {
+        for (int index : output) {
             System.out.println(index);
         }
     }
