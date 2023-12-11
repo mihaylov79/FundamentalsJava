@@ -10,7 +10,8 @@ public class KaminoFactory_05 {
         int dnaNumbers = Integer.parseInt(kbInput.nextLine());
 
         int[] output = new int[dnaNumbers];
-        int  firstIndex = 0;
+
+        int firstIndex = 0;
         int bestSampleSum = 0;
         int bestSampleRow = 0;
         int bestFullSum = 0;
@@ -19,91 +20,71 @@ public class KaminoFactory_05 {
 
         String command = kbInput.nextLine();
 
-        while (!"Clone them!".equalsIgnoreCase(command)){
+        while (!"Clone them!".equalsIgnoreCase(command)) {
 
             int[] dnaSample = Arrays.stream(command.split("!+"))
-                    .mapToInt(Integer::parseInt).toArray();
+                                .mapToInt(Integer::parseInt).toArray();
 
             int sum = 0;
             boolean isFound = false;
             int index = 0;
             int fullSum = 0;
 
-
-            row ++;
+            row++;
 
             for (int i = 0; i < dnaNumbers; i++) {
 
                 fullSum += dnaSample[i];
 
-                if (i == 0 ){
+                if (i == 0) {
 
-                    if (dnaNumbers == 1){
+                    if (dnaNumbers == 1) {
 
-                        if (dnaSample[i] == 1){
+                        if (dnaSample[i] == 1) {
 
-                            sum +=  dnaSample[i];
-
-                            isFound = true;
+                            sum += dnaSample[i];
 
                             break;
                         }
-
                     }
 
+                    if (dnaSample[i] == 1 && dnaSample[i + 1] == 1) {
 
-                    if (dnaSample[i] == 1 && dnaSample[i + 1] == 1){
+                        sum += dnaSample[i];
 
-                        sum +=  dnaSample[i];
-
-                        if (!isFound){
+                        if (!isFound) {
                             index = i;
 
                             isFound = true;
                         }
                     }
-
-
                 }
 
-                if (i == dnaSample.length - 1){
+                if (i == dnaSample.length - 1) {
 
-                    if (dnaSample[i] == 1 && dnaSample[i - 1] == 1 ){
+                    if (dnaSample[i] == 1 && dnaSample[i - 1] == 1) {
 
-                        sum +=  dnaSample[i];
-
-//                        if (!isFound){
-//                            index = i;
-//
-//                            isFound = true;
-//                        }
+                        sum += dnaSample[i];
                     }
-
-
                 }
 
+                if (i > 0 && i < (dnaSample.length - 1)) {
 
-                if (i > 0 && i < (dnaSample.length - 1)){
+                    if ((dnaSample[i] == 1 && dnaSample[i + 1] == 1) || (dnaSample[i] == 1 && dnaSample[i - 1] == 1)) {
 
-                    if ((dnaSample[i] == 1 && dnaSample[i + 1] == 1) || (dnaSample[i] == 1 && dnaSample[i - 1] == 1)){
+                        sum += dnaSample[i];
 
-                        sum +=  dnaSample[i];
-
-                        if (!isFound){
+                        if (!isFound) {
                             index = i;
 
                             isFound = true;
                         }
-
                     }
-
                 }
-
-
             }
 
 
-            if (sum > bestSampleSum){
+            if (sum > bestSampleSum) {
 
                 bestFullSum = fullSum;
 
@@ -113,16 +94,14 @@ public class KaminoFactory_05 {
 
                 bestSampleRow = row;
 
-                printBestFullSum = false;
 
                 for (int j = 0; j < output.length; j++) {
 
                     output[j] = dnaSample[j];
-
                 }
 
-            }else if (sum == bestSampleSum){
-                if (index < firstIndex){
+            } else if (sum == bestSampleSum) {
+                if (index < firstIndex) {
                     firstIndex = index;
 
                     bestSampleRow = row;
@@ -130,18 +109,15 @@ public class KaminoFactory_05 {
                     for (int j = 0; j < output.length; j++) {
 
                         output[j] = dnaSample[j];
-
                     }
                 } else if (index == firstIndex) {
-                    if (fullSum > bestFullSum){
 
-                        //bestSampleSum = sum;
+                    if (fullSum > bestFullSum) {
 
                         bestSampleRow = row;
 
                         bestFullSum = fullSum;
 
-                        //bestSampleSum = bestFullSum;
                         printBestFullSum = true;
 
                         for (int j = 0; j < output.length; j++) {
@@ -155,7 +131,6 @@ public class KaminoFactory_05 {
             }
 
 
-
             command = kbInput.nextLine();
 
         }
@@ -167,16 +142,16 @@ public class KaminoFactory_05 {
 
         }
 
-        if (bestSampleSum == 0){
+        if (bestSampleSum == 0) {
             bestSampleRow = 1;
         }
 
         int finalSampleSum = printBestFullSum ? bestFullSum : bestSampleSum;
 
-        System.out.printf("Best DNA sample %d with sum: %d.%n",bestSampleRow,finalSampleSum);
+        System.out.printf("Best DNA sample %d with sum: %d.%n", bestSampleRow, finalSampleSum);
 
-        String outputString  = Arrays.toString(output);
+        String outputString = Arrays.toString(output);
 
-        System.out.println(outputString.replace("[","").replace("]","").replace(",",""));
+        System.out.println(outputString.replace("[", "").replace("]", "").replace(",", ""));
     }
 }
