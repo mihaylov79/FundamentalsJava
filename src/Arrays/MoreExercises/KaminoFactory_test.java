@@ -32,34 +32,58 @@ public class KaminoFactory_test {
 
             row ++;
 
-            for (int i = 0; i < dnaSample.length; i++) {
+            for (int i = 0; i < dnaNumbers; i++) {
 
                 fullSum += dnaSample[i];
 
-                if (i == 0 && dnaSample[i] == 1 && dnaSample[i + 1] == 1  ){
+                if (i == 0 ){
 
-                    sum +=  dnaSample[i];
+                    if (dnaNumbers == 1){
 
-                    if (!isFound){
-                        index = i;
+                        if (dnaSample[i] == 1){
 
-                        isFound = true;
+                            sum +=  dnaSample[i];
+
+                            isFound = true;
+
+                            break;
+                        }
+
                     }
+
+
+                    if (dnaSample[i] == 1 && dnaSample[i + 1] == 1){
+
+                        sum +=  dnaSample[i];
+
+                        if (!isFound){
+                            index = i;
+
+                            isFound = true;
+                        }
+                    }
+
+
                 }
 
-                if ((i == dnaSample.length - 1) && dnaSample[i] == 1 && dnaSample[i - 1] == 1  ){
+                if (i == dnaSample.length - 1){
 
-                    sum +=  dnaSample[i];
+                    if (dnaSample[i] == 1 && dnaSample[i - 1] == 1 ){
 
-                    if (!isFound){
-                        index = i;
+                        sum +=  dnaSample[i];
 
-                        isFound = true;
+//                        if (!isFound){
+//                            index = i;
+//
+//                            isFound = true;
+//                        }
                     }
+
+
                 }
 
 
-                if (i > 0 && (i < dnaSample.length - 1)){
+                if (i > 0 && i < (dnaSample.length - 1)){
 
                     if ((dnaSample[i] == 1 && dnaSample[i + 1] == 1) || (dnaSample[i] == 1 && dnaSample[i - 1] == 1)){
 
@@ -100,8 +124,6 @@ public class KaminoFactory_test {
             }else if (sum == bestSampleSum){
                 if (index < firstIndex){
                     firstIndex = index;
-
-                    //bestSampleSum = sum;
 
                     bestSampleRow = row;
 
