@@ -26,11 +26,6 @@ public class DestinationMapper_02_02 {
 
            testOutput.add(matcher.group("text"));
 
-
-
-
-            //System.out.print(String.join(",",matcher.group("text")));
-            System.out.println();
         }
 
 
